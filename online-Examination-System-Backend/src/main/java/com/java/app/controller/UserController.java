@@ -33,8 +33,18 @@ public class UserController {
 	}
 	
 	@PutMapping("/update")
-	public void updateUsers(@RequestBody User user) {
-		userRepository.save(user);
+	public User updateUsers(@RequestBody User user) {
+		User existingUser = (User) userRepository.findByUsername(user.getUsername());
+		System.out.println(user);
+		if(existingUser == null) {
+			System.out.println("User Not Found");
+			return userRepository.save(user);
+		}else {
+			existingUser.setUsername(user.getUsername());
+			existingUser.setPassword(user.getPassword());
+			userRepository.save(existingUser);
+		}
+		return user;
 		
 	}
 
