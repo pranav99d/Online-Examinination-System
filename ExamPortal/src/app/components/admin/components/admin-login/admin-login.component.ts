@@ -1,19 +1,19 @@
- import { Component, OnInit } from '@angular/core';
-import { LoginService } from "src/app/services/login.service";
+import { Component, OnInit } from '@angular/core';
+import { AdminLoginService } from "src/app/components/admin/services/admin-login.service";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-admin-login',
+  templateUrl: './admin-login.component.html',
+  styleUrls: ['./admin-login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class AdminLoginComponent implements OnInit {
 
   credentials = {
     username: '',
     password: ''
   }
 
-  constructor(private loginService: LoginService) { }
+  constructor(private adminLoginService: AdminLoginService) { }
 
   ngOnInit(): void {
   }
@@ -22,10 +22,10 @@ export class LoginComponent implements OnInit {
     if ((this.credentials.username != '' && this.credentials.password != '') && (this.credentials.username != null && this.credentials.password != null)) {
 
       console.log("we have to submit the form");
-      this.loginService.generateToken(this.credentials).subscribe(
+      this.adminLoginService.generateToken(this.credentials).subscribe(
         (response:any)=>{
           console.log("response");
-          this.loginService.loginUser(response.token);
+          this.adminLoginService.loginAdmin(response.token);
           window.location.href="/dashboard";
         },
         (error:any)=>{

@@ -16,6 +16,9 @@ import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { AdminLoginComponent } from './components/admin/components/admin-login/admin-login.component';
+import { AdminDashboardComponent } from './components/admin/components/admin-dashboard/admin-dashboard.component';
+import { AdminForgotComponent } from './components/admin/components/admin-forgot/admin-forgot.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
     HomeComponent,
     LoginComponent,
     DashboardComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    AdminLoginComponent,
+    AdminDashboardComponent,
+    AdminForgotComponent
   ],
   imports: [
     BrowserModule,

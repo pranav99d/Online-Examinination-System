@@ -6,7 +6,7 @@
           <div class="container text-center">
             <img class="img-fluid" style="width: 120px;" src="/assets/password.png" alt="">
           </div>
-          <h1 class="text-center">Create New Password</h1>
+          <h1 class="text-center">Login Here!</h1>
 
           <!-- Creating Form  -->
           <form class="text-center" (ngSubmit)="onSubmit()">
@@ -19,26 +19,21 @@
               type="text" matInput />
             </mat-form-field>
             <mat-form-field class="full-width" appearance="outline">
-              <mat-label>Enter New Password</mat-label>
+              <mat-label>Password</mat-label>
               <input
               [(ngModel)] = "credentials.password"
               required
               name="password"
               type="password" matInput />
             </mat-form-field>
-            <mat-form-field class="full-width" appearance="outline">
-              <mat-label>Confirm New Password</mat-label>
-              <input
-              [(ngModel)] = "credentials.password1"
-              required
-              name="password1"
-              type="password" matInput />
-            </mat-form-field>
 
             <div class="container text-center">
 
-              <button type="Submit" mat-raised-button color="primary">Update Password</button>
-              <button type="button" style="margin-left: 10px;" mat-raised-button routerLink="/login">Close</button>
+              <button type="Submit" mat-raised-button color="primary">Login</button>
+
+              <button type="button" style="margin-left: 10px;" mat-raised-button color="accent"
+              routerLink="/admin-forgot">Forgot Password</button>
+
             </div>
 
           </form>
