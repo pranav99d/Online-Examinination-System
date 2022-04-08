@@ -1,1 +1,49 @@
-<p>admin-forgot works!</p>
+<div class="bootstrap-wrapper">
+  <div class="container mt">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <mat-card>
+          <div class="container text-center">
+            <img class="img-fluid" style="width: 120px;" src="/assets/password.png" alt="">
+          </div>
+          <h1 class="text-center">Create New Password</h1>
+
+          <!-- Creating Form  -->
+          <form class="text-center" (ngSubmit)="onSubmit()">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Username</mat-label>
+              <input
+              [(ngModel)] = "credentials.username"
+              required
+              name="username"
+              type="text" matInput />
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Enter New Password</mat-label>
+              <input
+              [(ngModel)] = "credentials.password"
+              required
+              name="password"
+              type="password" matInput />
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Confirm New Password</mat-label>
+              <input
+              [(ngModel)] = "credentials.password1"
+              required
+              name="password1"
+              type="password" matInput />
+            </mat-form-field>
+
+            <div class="container text-center">
+
+              <button type="Submit" mat-raised-button color="primary">Update Password</button>
+              <button type="button" style="margin-left: 10px;" mat-raised-button routerLink="/admin-login">Close</button>
+            </div>
+
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,7 +10,6 @@ import { ForgotPasswordService } from "src/app/services/forgot-password.service"
 export class ForgotPasswordComponent implements OnInit {
 
   credentials = {
-    id: '',
     username: '',
     password: '',
     password1: ''

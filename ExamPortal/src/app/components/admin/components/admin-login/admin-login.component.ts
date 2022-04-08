@@ -26,7 +26,7 @@ export class AdminLoginComponent implements OnInit {
         (response:any)=>{
           console.log("response");
           this.adminLoginService.loginAdmin(response.token);
-          window.location.href="/dashboard";
+          window.location.href="/admin-dashboard";
         },
         (error:any)=>{
           console.log("error");
