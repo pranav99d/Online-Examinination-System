@@ -31,5 +31,18 @@ public class AdminController {
 	public List<Admin> getUsers1() {
 		return adminRepository.findAll();
 	}
-
+	@PutMapping("/update")
+	public Admin updateAdmin(@RequestBody Admin admin) {
+		Admin existingAdmin = (Admin) adminRepository.getUserByUsername(admin.getUsername());
+		System.out.println(admin);
+		if(existingAdmin == null) {
+			System.out.println("User Not Found");
+			return adminRepository.save(admin);
+		}else {
+			existingAdmin.setPassword(admin.getPassword());
+			adminRepository.save(existingAdmin);
+		}
+		return admin;
+		
+	}
 }
