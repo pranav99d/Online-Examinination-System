@@ -42,6 +42,7 @@ public class AdminController {
 		else {
 			return (ResponseEntity<?>) ResponseEntity.badRequest();
 		}
+<<<<<<< HEAD
 	}
 	
 	@PutMapping("/update")
@@ -74,5 +75,23 @@ public class AdminController {
 		
 	}
 =======
+>>>>>>> 6ca6f6cd2f09dddab64d0eadc7de482c2c829256
+=======
+	}
+	
+	@PutMapping("/update")
+	public Admin updateAdmin(@RequestBody Admin admin) {
+		Admin existingAdmin = (Admin) adminRepository.getUserByUsername(admin.getUsername());
+		System.out.println(admin);
+		if(existingAdmin == null) {
+			System.out.println("Admin Not Found");
+			//return adminRepository.save(admin);
+		}else {
+			existingAdmin.setPassword(admin.getPassword());
+			adminRepository.save(existingAdmin);
+		}
+		return admin;
+		
+	}
 >>>>>>> 6ca6f6cd2f09dddab64d0eadc7de482c2c829256
 }
