@@ -14,11 +14,13 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { AdminLoginComponent } from './components/admin/components/admin-login/admin-login.component';
 import { AdminDashboardComponent } from './components/admin/components/admin-dashboard/admin-dashboard.component';
 import { AdminForgotComponent } from './components/admin/components/admin-forgot/admin-forgot.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { AdminForgotComponent } from './components/admin/components/admin-forgot
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    HttpClientModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

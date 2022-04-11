@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminLoginService } from "src/app/components/admin/services/admin-login.service";
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-admin-login',
@@ -13,7 +14,7 @@ export class AdminLoginComponent implements OnInit {
     password: ''
   }
 
-  constructor(private adminLoginService: AdminLoginService) { }
+  constructor(private adminLoginService: AdminLoginService, private snack: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -27,13 +28,25 @@ export class AdminLoginComponent implements OnInit {
           console.log("response");
           this.adminLoginService.loginAdmin(response.token);
           window.location.href="/admin-dashboard";
+          this.snack.open('Login Successful !!' , 'OK',{
+            duration: 3000,
+            verticalPosition:'top',
+          })
         },
         (error:any)=>{
           console.log("error");
+          this.snack.open('Invalid Username or Password !!' , 'OK',{
+            duration: 3000,
+            verticalPosition:'top',
+          })
         }
       )
     } else {
       console.log("Fields are required!");
+      this.snack.open('Fields are required !!' , 'OK',{
+        duration: 3000,
+        verticalPosition:'top',
+      })
     }
   }
 
